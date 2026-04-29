@@ -1,9 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey) 
+  : null;
 
 export type Lead = {
   id?: string;
@@ -16,7 +18,7 @@ export type Lead = {
 };
 
 export async function insertLead(lead: Omit<Lead, "id" | "created_at">): Promise<{ success: boolean; error?: string }> {
-  if (!supabaseUrl || !supabaseAnonKey) {
+  if (!supabase) {
     console.warn("Supabase não configurado. Dados do lead:", lead);
     return { success: true };
   }
