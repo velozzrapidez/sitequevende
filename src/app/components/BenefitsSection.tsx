@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Zap, Shield, TrendingUp, Cpu, Globe, Heart, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const benefits = [
   {
@@ -110,13 +111,18 @@ export default function BenefitsSection() {
           className="mt-24 relative rounded-3xl md:rounded-3xl overflow-hidden shadow-3xl group"
         >
           <div className="aspect-square sm:aspect-[16/7] md:aspect-[21/7] relative overflow-hidden">
-            <motion.img 
+            <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 1.5 }}
-              src="/smiling-hacker.jpg" 
-              alt="Advanced Technology" 
-              className="w-full h-full object-cover object-[center_15%] grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000"
-            />
+              className="absolute inset-0 w-full h-full"
+            >
+              <Image 
+                fill
+                src="/smiling-hacker.jpg" 
+                alt="Advanced Technology" 
+                className="object-cover object-[center_15%] grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000"
+              />
+            </motion.div>
             {/* Elegant Gradient Overlay — left-heavy gradient to protect the face on the right */}
             <div className="absolute inset-0 bg-gradient-to-l from-slate-950 via-slate-900/30 to-transparent" />
             

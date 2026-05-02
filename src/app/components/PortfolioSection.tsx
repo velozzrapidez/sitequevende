@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { 
   CheckCircle2, 
   ArrowRight, 
@@ -268,10 +269,11 @@ export default function PortfolioSection() {
                 >
                   {/* After Image */}
                   <div className="absolute inset-0 bg-slate-200">
-                    <img 
+                    <Image 
+                      fill
                       src={project.imageAfter} 
                       alt="Depois" 
-                      className="w-full h-full object-cover"
+                      className="object-cover"
                     />
                     <div className="absolute top-6 right-6 bg-green-500 text-white text-[10px] font-black px-4 py-2 rounded-full shadow-xl z-20 uppercase tracking-widest flex items-center gap-2">
                       <Zap className="w-3 h-3 fill-white" />
@@ -287,10 +289,11 @@ export default function PortfolioSection() {
                       transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
                       className="absolute bottom-6 left-6 w-1/2 aspect-video rounded-2xl overflow-hidden border-4 border-white shadow-2xl z-30 group-hover:scale-105 transition-transform duration-500"
                     >
-                      <img 
+                      <Image 
+                        fill
                         src={project.imageBefore} 
                         alt="Antes" 
-                        className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700"
+                        className="object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700"
                       />
                       <div className="absolute inset-0 bg-slate-900/20" />
                       <div className="absolute top-3 left-3 bg-red-500 text-white text-[8px] font-black px-2 py-1 rounded shadow-lg z-10 uppercase tracking-widest">

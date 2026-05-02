@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Search, Layout, Palette, Rocket, Check, ArrowRight, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const steps = [
   {
@@ -72,10 +73,11 @@ export default function HowItWorksSection() {
           className="mb-24 relative rounded-3xl md:rounded-3xl overflow-hidden shadow-3xl group border-4 border-slate-50"
         >
           <div className="aspect-[4/5] sm:aspect-video md:aspect-[21/7] relative">
-            <img 
+            <Image 
+              fill
               src="/team-working-together-project.jpg" 
               alt="Professional Process" 
-              className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000"
+              className="object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000"
             />
             {/* Elegant Gradient and Content — card pushed to the right */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/30 to-transparent flex flex-col justify-end items-end p-6 md:p-14">

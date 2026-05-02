@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, MessageCircle, Star, Users, Clock, Zap, Shield, TrendingUp } from "lucide-react";
 import { useRef } from "react";
+import Image from "next/image";
 
 const WHATSAPP_NUMBER = "5564999950730";
 const WHATSAPP_MESSAGE = encodeURIComponent(
@@ -203,10 +204,12 @@ export default function HeroSection() {
             className="relative w-full max-w-sm mx-auto lg:max-w-none"
           >
             <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
-              <img
+              <Image
+                fill
+                priority
                 src="/woman-portrait-with-blue-lights-visual-effects.jpg"
                 alt="Tecnologia e Design Premium"
-                className="w-full h-full object-cover brightness-110"
+                className="object-cover brightness-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent" />
 
